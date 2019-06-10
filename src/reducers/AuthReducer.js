@@ -9,7 +9,6 @@ const initialState = {
   error: null,
   firstVarVal: ''
 }
-
 const authReducer = (state = initialState, action) => {
   switch(action.type){
     case types.FIRST_ACTION:
@@ -21,7 +20,6 @@ const authReducer = (state = initialState, action) => {
       return state;
   }
 }
-
 export default authReducer;
 
 
