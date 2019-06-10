@@ -1,10 +1,10 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  userNameStr : '',
-  passwordStr : '',
-  isLoggedIn : false,
-  isSignUp : false,
+  userNameStr: '',
+  passwordStr: '',
+  isLoggedIn: false,
+  isSignUp: false,
   email: '',
   error: null,
   firstVarVal: ''
@@ -17,12 +17,12 @@ const authReducer = (state = initialState, action) => {
         ...state,
         firstVarVal: action.payload
       }
+    default:
+      return state;
   }
-
-
-  
 }
 
+export default authReducer;
 
 
 
