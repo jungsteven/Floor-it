@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 //IMPORT ACTION CREATORS HERE
 import  * as authActions from './actions/authActions.js';
 import Canvas from './components/canvas';
+// import Coloredshape from './components/coloredshape';
+import Drag from './components/Drag';
+
+
 //map state to props
 const mapStateToProps = (store) => ({
   firstVarVal: store.auth.firstVarVal,
@@ -29,13 +33,21 @@ class App extends Component {
     
     return(
       <Fragment>
-         <h1 style={headerStyle}> Floor-it </h1>
-         <Canvas/>
+        <h1 style={headerStyle}> Floor-it! </h1>
+      <Canvas />
+        
+      
+  
+
+
       {/* <input className="mr-input" onChange={(e) => {
         this.props.updateFirstVarVal(e);
       }}>TYPE HERE</input> */}
-      <p>{this.props.firstVarVal}</p>
+      {/* <p>{this.props.firstVarVal}</p> */}
+
+
       </Fragment>
+      
      
 
 

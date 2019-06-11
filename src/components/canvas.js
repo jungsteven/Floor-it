@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import Drag from './Drag';
 
 class Canvas extends Component {
   constructor(props) {
@@ -6,13 +7,9 @@ class Canvas extends Component {
     this.state = {}
   }
   render(){ 
-    // Box width
     let bw = 800;
-    // Box height
     let bh = 800;
-    // Padding
     let p = 10;
-    
     let canvas = document.getElementById("canvas");
     let context = canvas.getContext("2d");
     
@@ -33,7 +30,9 @@ class Canvas extends Component {
     return(
       <Fragment>
        {/* doesnt do anything */}
-       {grid}  
+       
+      <Drag />
+       
       </Fragment>
      
     );
