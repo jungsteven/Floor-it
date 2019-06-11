@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 app.get('/account', authController.findUser, (req, res) => {
   console.log('FINAL MIDDLEWARE', res.locals);
   if(res.locals.error || res.locals.isMatch === false) return res.status(400).json({error: 'invalid credentials'});
-  else return res.status(200).json({placeholder: 'SUCESS'});
+  else return res.status(200).json({placeholder: 'SUCCESS'});
 });
 
 app.post('/account', authController.createUser, (req, res) => {
