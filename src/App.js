@@ -27,7 +27,7 @@ class App extends Component {
          <h1> Howdy </h1>
       <input className="mr-input" onChange={(e) => {
         this.props.updateFirstVarVal(e);
-      }}></input>
+      }}>TYPE HERE</input>
       <p>{this.props.firstVarVal}</p>
       </Fragment>
      

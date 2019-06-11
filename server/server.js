@@ -1,11 +1,20 @@
 const db = require('./bin/db');
-const path = require('path');
 const express = require('express');
-const PORT = 3001;
+const authController = require('./controllers/authController.js')
 const app = express();
 
-module.exports = app.listen((PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-}));
+app.get('/', (req, res) => {
+  console.log('It works.');
+  res.status(200).send('IT WORKS!');
+})
+
+app.post('/account', authController.createUser, (req, res) => {
+   res.status(200).send('Uploaded to Database');    
+});
+
+app.listen(3001, () => {
+  console.log('Server listening on Port 3001')
+})
+
 
 
