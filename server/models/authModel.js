@@ -5,7 +5,7 @@ const saltRounds = 12;
 const Schema = mongoose.Schema;
 
 const Account = new Schema({
-    userName : {type: String, require: true},
+    userName : {type: String, require: true, unique: true,},
     password : {type: String, require: true},
 });
 
@@ -18,5 +18,7 @@ Account.pre('save', async function(next) {
       return next();
     });   
 });
+
+
 
 module.exports = mongoose.model('Account', Account);
