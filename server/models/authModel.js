@@ -6,9 +6,9 @@ const authSchema = new Schema({
     password : {type: String, require: true},
 });
 
-authSchema.pre('save', (req, res, next) => {
-  console.log('middleware being invoked');
-  return next();
-})
+// authSchema.pre('save', (req, res, next) => {
+//   console.log('middleware being invoked');
+//   return next();
+// })
 
 module.exports = mongoose.model('auth', authSchema);
