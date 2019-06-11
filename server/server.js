@@ -1,9 +1,7 @@
-const db = require('./bin/db');
 const express = require('express');
 const authController = require('./controllers/authController.js')
-
+const bodyParser = require('body-parser');
 const startMongoose = require('./bin/mongoose');
-startMongoose();
 
 const app = express();
 
@@ -25,5 +23,5 @@ app.post('/account', authController.createUser, (req, res) => {
 app.listen(3001, () => {
   console.log('Server listening on Port 3001')
 })
-
-module.exports = server;
+startMongoose();
+module.exports = app;
