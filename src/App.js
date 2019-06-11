@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 //IMPORT ACTION CREATORS HERE
 import  * as authActions from './actions/authActions.js';
+import Canvas from './components/canvas';
 //map state to props
 const mapStateToProps = (store) => ({
   firstVarVal: store.auth.firstVarVal,
@@ -18,16 +19,21 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      
     }
   }
-  render(){ 
+  render(){  
+    const headerStyle = {
+      textAlign: 'center',
+   
+    }
+    
     return(
       <Fragment>
-         <h1> Howdy </h1>
-      <input className="mr-input" onChange={(e) => {
+         <h1 style={headerStyle}> Floor-it </h1>
+         <Canvas/>
+      {/* <input className="mr-input" onChange={(e) => {
         this.props.updateFirstVarVal(e);
-      }}>TYPE HERE</input>
+      }}>TYPE HERE</input> */}
       <p>{this.props.firstVarVal}</p>
       </Fragment>
      

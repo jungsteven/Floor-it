@@ -1,4 +1,4 @@
-const db = require('../bin/db.js');
+const db = require('../bin/mongoose.js');
 const authModel = require('../models/authModel');
 
 const authController = {
