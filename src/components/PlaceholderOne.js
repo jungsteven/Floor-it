@@ -1,7 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-
 class PlaceholderOne extends Component {
   constructor(props){
     super(props);
@@ -23,7 +22,6 @@ class PlaceholderOne extends Component {
       default:
         return (
           <Fragment>
-          <p>{'PLACEHOLDER ONE'} {'Who ordered the poo poo platter?' + ' ' + this.state.changePage}</p>
           <button onClick={()=>{this.state.toggleChangePage('/canvas'); console.log(this.state)}}></button>
           <button onClick={()=>{this.state.toggleChangePage('/landing'); console.log(this.state)}}></button>
           </Fragment>

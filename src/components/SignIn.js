@@ -5,10 +5,10 @@ class SignIn extends Component{
     constructor(props){
         super(props)
         this.state = {
-            route: ''
+            route: '',
+            changeRoute: (route) => this.setState({route}),
         };
     }
-
    render(){
        const styles = {
         width: '300px',
@@ -40,12 +40,14 @@ class SignIn extends Component{
         boxSizing: 'border-box',
         fontSize: '14px',
        }
+       if(this.state.route !== '') return <Redirect to={this.state.route}/>
        return (
         <div className='login-wrap' style={styles}>          
             <input style={inputStyle} placeholder='Username' type='name'name='email'/>
             <input style={inputStyle} placeholder='Password' type='password' name='password'/>
             <input style={submitStyle} type='submit' value='login'/>
-            <button onClick={()=>{this.state.toggleChangePage('/canvas'); console.log(this.state)}}></button>
+            <button onClick={()=>{this.state.changeRoute('/landing')}}>CLICK TO GO TO LANDING</button>
+            <button onClick={()=>{this.state.changeRoute('/canvas')}}>CLICK TO GO TO CANDYLAND</button>
         </div>
        );
    }
