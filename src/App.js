@@ -9,8 +9,8 @@ import { Switch } from 'react-router';
 import PlaceholderOne from './components/PlaceholderOne.js';
 import PlaceholderTwo from './components/PlaceholderTwo.js';
 import Toolbar from './components/Toolbar.js';
-import CanvasPage from './containers/CanvasPage.js';
-
+import CanvasPage from './containers/canvasPage.js';
+import SignIn from './components/SignIn.js';
 //IMPORT ACTION CREATORS HERE
 // import  * as authActions from './actions/authActions.js';
 
@@ -46,10 +46,10 @@ class App extends Component {
       // }
     return(
       <Fragment>
-        <Toolbar></Toolbar>
+        <Toolbar />
         <Router>
           <Switch>
-            <Route exact path='/' component={PlaceholderOne} />
+            <Route exact path='/' component={SignIn} />
             <Route path='/landing' component={PlaceholderTwo} />
             <Route path='/canvas' component={CanvasPage} />
           </Switch>

@@ -52,7 +52,7 @@ class CanvasPage extends Component {
 
     return (
       <Fragment>
-        <Button onClick={this.onButtonClick}> Add Furniture </Button>
+        <button onClick={this.onButtonClick}> Add Furniture </button>
         <div className="canvas-page">
             <canvas style={canvasStyle} ref="myCanvas" width="1580px" height="1580px" />
             {/* Conditionally render furniture piece on button click */}
