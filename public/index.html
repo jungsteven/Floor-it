@@ -3,74 +3,29 @@
   <head>
     <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
     <style>
-      canvas {
-        position: absolute;
-        width: 600px;
-        height: 400px;
-        left: 50%;
-        top: 50%;
-        margin-left: -300px; /* This is half the width */
-        margin-top: -200px; /* This is half the height */
-      }
-        body {
+      body, html {
+        height: 100%;
         margin: 0;
-        padding: 0;
         overflow: hidden;
-        background-color: #f0f0f0;
       }
+      .bg { 
+        background-image: url("https://images.wallpaperscraft.com/image/interior_design_style_home_room_kitchen_75589_3840x2400.jpg");
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }        
     </style>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
     <title>Floor-it</title>
-  
   </head>
-  <body>
-     
-   
-    <div id="root"></div>
-    <canvas id="canvas" width="820px" height="820px"></canvas>
-    <!-- <div id="container"></div>
-    <script>
-      let width = window.innerWidth;
-      let height = window.innerHeight;
-
-      let stage = new Konva.Stage({
-        container: 'container',
-        width: width,
-        height: height
-      });
-
-      let layer = new Konva.Layer();
-      let rectX = stage.width() / 2 - 50;
-      let rectY = stage.height() / 2 - 25;
-
-      let box = new Konva.Rect({
-        x: rectX,
-        y: rectY,
-        width: 100,
-        height: 50,
-        fill: '#00D2FF',
-        stroke: 'black',
-        strokeWidth: 4,
-        draggable: true
-      });
-
-
-      box.on('mouseover', function() {
-        document.body.style.cursor = 'pointer';
-      });
-      box.on('mouseout', function() {
-        document.body.style.cursor = 'default';
-      });
-
-      layer.add(box);
-      stage.add(layer);
-    </script> -->
+  <body class="bg">
     
+      <div id="root"></div>
+  
   </body>
 </html>
