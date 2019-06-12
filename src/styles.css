@@ -1,3 +1,42 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.flex{
+  margin: 0 auto;
+  display: flex;
+  background-color: rgba(100, 100, 100, .5);
+  width: 33%;
+  height: 500px;
+}
+
+#templatelist{
+  background-color: rgba(100, 200, 100, .5);
+  width: 66%;
+  overflow-y: scroll;
+}
+
 #toolbar{
   background-color: yellow;
   width: 100% 
