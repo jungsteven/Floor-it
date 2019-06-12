@@ -6,13 +6,19 @@ class CanvasPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      displayFurniture: false,
+      inventory: [<Drag />],
+      displayFurniture: true,
     }
     this.onButtonClick = this.onButtonClick.bind(this);
   }
   onButtonClick() {
+    const clonedInventory = this.state.inventory.slice();
+    clonedInventory.push(<Drag/>);
+    console.log('cloned inven', clonedInventory);
+    console.log('real inven', this.state.inventory);
     this.setState({
       displayFurniture: true,
+      inventory: clonedInventory,
     });
   }
   componentDidMount() {
@@ -49,15 +55,13 @@ class CanvasPage extends Component {
       backgroundImage: 'url("https://i.imgur.com/wvKRoKy.png")',
       opacity: 0.75,
     }
-
     return (
       <Fragment>
         <button onClick={this.onButtonClick}> Add Furniture </button>
         <div className="canvas-page">
             <canvas style={canvasStyle} ref="myCanvas" width="1580px" height="1580px" />
             {/* Conditionally render furniture piece on button click */}
-            {this.state.displayFurniture ? <Drag />: null} 
-            {/* <Drag /> */}
+            {this.state.displayFurniture ? this.state.inventory: null} 
         </div>
       </Fragment>
         
