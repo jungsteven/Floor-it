@@ -6,20 +6,23 @@ class PlaceholderOne extends Component{
     super(props);
     this.state = {
       changePage: false,
-      toggleChangePage: () =>{this.setState({changePage: true})}
+      toggleChangePage: (val) =>{this.setState({changePage: val})}
     }
   }
   render(){
-    if(this.state.changePage === true){
-      console.log('redirecting');
-      return <Redirect to='/landing'></Redirect>
+    switch(this.state.changePage){
+      case ('/landing'):
+        return <Redirect to={this.state.changePage} />;
+      case ('/canvas'):
+          return <Redirect to={this.state.changePage} />;
+      default:
+        return (
+          <Fragment>
+            <p>{'PLACEHOLDER ONE'} {'dwdw' + this.state.changePage}</p>
+            <button onClick={()=>{this.state.toggleChangePage('/landing'); console.log(this.state)}}></button>
+          </Fragment>
+          );
     }
-    return(
-      <Fragment>
-        <p>{'PLACEHOLDER ONE'} {'dwdw' + this.state.changePage}</p>
-        <button onClick={()=>{this.state.toggleChangePage(); console.log(this.state)}}></button>
-      </Fragment>
-    );
   }
 }
 

@@ -9,7 +9,7 @@ import { Switch } from 'react-router';
 import PlaceholderOne from './components/PlaceholderOne.js';
 import PlaceholderTwo from './components/PlaceholderTwo.js';
 import Toolbar from './components/Toolbar.js';
-
+import CanvasPage from './containers/CanvasPage.js';
 
 //IMPORT ACTION CREATORS HERE
 // import  * as authActions from './actions/authActions.js';
@@ -32,19 +32,18 @@ class App extends Component {
     super(props)
   }
   render(){
-      const headerStyle = {
-        textAlign: 'center',
-        fontSize: '52px',
-        color: 'white',
-        fontStyle: 'Impact', 
-      }
-  
-      const buttonStyle = {
-        backgroundColor: 'white',
-        width: '1800px',
-        height: '100px',
-        marginLeft: '15px',
-      }
+      // const headerStyle = {
+      //   textAlign: 'center',
+      //   fontSize: '52px',
+      //   color: 'white',
+      //   fontStyle: 'Impact', 
+      // } 
+      // const buttonStyle = {
+      //   backgroundColor: 'white',
+      //   width: '1800px',
+      //   height: '100px',
+      //   marginLeft: '15px',
+      // }
     return(
       <Fragment>
         <Toolbar></Toolbar>
@@ -52,6 +51,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={PlaceholderOne} />
             <Route path='/landing' component={PlaceholderTwo} />
+            <Route path='/canvas' component={CanvasPage} />
           </Switch>
         </Router>
       </Fragment>  
