@@ -23,6 +23,20 @@
   color: #61dafb;
 }
 
+.flex{
+  margin: 0 auto;
+  display: flex;
+  background-color: rgba(100, 100, 100, .5);
+  width: 33%;
+  height: 500px;
+}
+
+#templatelist{
+  background-color: rgba(100, 200, 100, .5);
+  width: 66%;
+  overflow-y: scroll;
+}
+
 #toolbar{
   background-color: yellow;
   width: 100% 

@@ -22,8 +22,8 @@ class PlaceholderOne extends Component {
       default:
         return (
           <Fragment>
-          <button onClick={()=>{this.state.toggleChangePage('/canvas'); console.log(this.state)}}></button>
-          <button onClick={()=>{this.state.toggleChangePage('/landing'); console.log(this.state)}}></button>
+          <button onClick={()=>{this.state.toggleChangePage('/canvas'); console.log(this.state)}}>FROM PLACEHOLDER1 TO CANVAS</button>
+          <button onClick={()=>{this.state.toggleChangePage('/landing'); console.log(this.state)}}>TO LANDING</button>
           </Fragment>
         );
     }
