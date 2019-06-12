@@ -32,6 +32,19 @@ class App extends Component {
     super(props)
   }
   render(){
+      const headerStyle = {
+        textAlign: 'center',
+        fontSize: '52px',
+        color: 'white',
+        fontStyle: 'Impact', 
+      }
+  
+      const buttonStyle = {
+        backgroundColor: 'white',
+        width: '1800px',
+        height: '100px',
+        marginLeft: '15px',
+      }
     return(
       <Fragment>
         <Toolbar></Toolbar>
@@ -45,6 +58,5 @@ class App extends Component {
     )
   }
 }
-  
 // export default connect(mapStateToProps, mapDispatchToProps)(App);
-export default App
+export default App;
