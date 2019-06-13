@@ -6,8 +6,29 @@ class SignIn extends Component{
         super(props)
         this.state = {
             route: '',
-            changeRoute: (route) => this.setState({route}),
+            changeRoute: (route) => {this.setState({route})},
         };
+        this.login = this.login.bind(this);
+        this.changeVal = this.changeVal.bind(this);
+
+    }
+
+    login(e){
+      e.preventDefault();
+      fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers:{
+        'Content-type': 'application/json' 
+        },
+        body: JSON.stringify({userName: this.state.userName, password:this.state.password})
+      })
+      .then(res => res.json())
+      .then(res => {if(res.status){this.state.changeRoute('/canvas')}})
+    }
+    changeVal(e, property){
+      const newState = {};
+      newState[property] = e.target.value;
+      this.setState(newState);
     }
    render(){
        const headerStyles = {
@@ -52,11 +73,11 @@ class SignIn extends Component{
        if(this.state.route !== '') return <Redirect to={this.state.route}/>
        return (
         <Fragment>
-            <img src="https://fontmeme.com/permalink/190613/3ceff503b7fdbbdb4c0fbf5ededcf6a7.png" className="img-rotate-scale" style={headerStyles}/>
+        <img src="https://fontmeme.com/permalink/190613/3ceff503b7fdbbdb4c0fbf5ededcf6a7.png" className="img-rotate-scale" style={headerStyles}/>
         <div className='login-wrap' style={styles}>               
-            <input style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
-            <input style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
-            <input onClick={()=>{this.state.changeRoute('/canvas')}} style={submitStyle} type="submit" value='Logga in'/>
+            <input onChange={(e)=>{this.changeVal(e,'userName')}} style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
+            <input onChange={(e)=>{this.changeVal(e, 'password')}}style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
+            <input onClick={e=>{this.login(e)}} style={submitStyle} type="submit" value='Logga in'/>
             {/* <button onClick={()=>{this.state.changeRoute('/landing')}}>CLICK TO GO TO LANDING</button> */}
             <button onClick={()=>{this.state.changeRoute('/canvas')}}>CLICK TO GO TO CANDYLAND</button>
         </div>

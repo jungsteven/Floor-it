@@ -2,9 +2,10 @@ const express = require('express');
 const authController = require('./controllers/authController.js')
 const bodyParser = require('body-parser');
 const startMongoose = require('./bin/mongoose');
-
+const cors = require('cors');
 const app = express();
 
+app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -13,10 +14,10 @@ app.get('/', (req, res) => {
   res.status(200).send('IT WORKS!');
 });
 
-app.get('/account', authController.findUser, (req, res) => {
+app.post('/login', authController.findUser, (req, res) => {
   console.log('FINAL MIDDLEWARE', res.locals);
   if(res.locals.error || res.locals.isMatch === false) return res.status(400).json({error: 'invalid credentials'});
-  else return res.status(200).json({placeholder: 'SUCCESS'});
+  else return res.status(200).json({status: 'SUCCESS'});
 });
 
 app.post('/account', authController.createUser, (req, res) => {

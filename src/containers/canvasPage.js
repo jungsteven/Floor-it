@@ -5,7 +5,7 @@ import { Stage, Layer, Text} from 'react-konva';
 import Sidebar from '../components/Sidebar';
 import '../styles.css';
 import Wardrobe from '../components/Wardrobe.js';
-
+import Vase from '../components/Vase.js';
 class CanvasPage extends Component {
   constructor(props) {
     super(props)
@@ -15,7 +15,18 @@ class CanvasPage extends Component {
     }
     this.onButtonClick = this.onButtonClick.bind(this);
     this.renderWardrobe = this.renderWardrobe.bind(this);
+    this.renderVase = this.renderVase.bind(this);
   }
+
+  renderVase(){
+    const clonedInventory = this.state.inventory.slice();
+    clonedInventory.push(<Vase />);
+    this.setState({
+      displayFurniture: true,
+      inventory: clonedInventory
+    })
+  }
+
   renderWardrobe(){
     const clonedInventory = this.state.inventory.slice();
     clonedInventory.push(<Wardrobe />);
@@ -27,6 +38,8 @@ class CanvasPage extends Component {
   onButtonClick(w, h, color) {
     const clonedInventory = this.state.inventory.slice();
     clonedInventory.push(<Drag  width={w} height={h} color={color}/>);
+    clonedInventory.forEach(thing =>console.log(thing));
+
     console.log('cloned inven', clonedInventory);
     console.log('real inven', this.state.inventory);
     this.setState({
@@ -81,7 +94,11 @@ class CanvasPage extends Component {
     return (
       <Fragment>
         <button onClick={()=>{this.onButtonClick(200,100,'#FFDA1A')}}> Add Furniture </button>
-        <Sidebar renderWardrobe={this.renderWardrobe} onButtonClick={this.onButtonClick} />
+        <Sidebar 
+          renderWardrobe={this.renderWardrobe} 
+          renderVase={this.renderVase}
+          onButtonClick={this.onButtonClick} 
+        />
         <div className="canvas-page">
         <Stage width={window.innerWidth} height={window.innerHeight}style={canvasStyle} ref="myCanvas"  >
           <Layer>
