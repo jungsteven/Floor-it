@@ -74,6 +74,8 @@ class LandingPageButtons extends Component{
             padding: '12px 20px',
             boxSizing: 'border-box',
             backgroundColor: 'lightblue',
+            fontWeight: 'bolder',
+            color: 'black',
         }
         return(
             <div className='container' style={containerStyles}>
