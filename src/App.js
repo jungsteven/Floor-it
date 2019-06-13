@@ -1,70 +1,46 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
-import  * as authActions from './actions/authActions.js';
-import CanvasPage from './containers/canvasPage';
-import Drag from './components/Drag';
+//REACT ROUTER
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch } from 'react-router';
+//COMPONENTS 
+import LandingPage from './containers/LandingPage.js';
+import PlaceholderTwo from './components/PlaceholderTwo.js';
+import Toolbar from './components/Toolbar.js';
+import CanvasPage from './containers/canvasPage.js';
+import SignIn from './components/SignIn.js';
+//IMPORT ACTION CREATORS HERE
+// import  * as authActions from './actions/authActions.js';
 
-//map state to props
-const mapStateToProps = (store) => ({
-  firstVarVal: store.auth.firstVarVal,
-  userNameStr: store.auth.userNameStr,
-  passwordStr: store.auth.passwordStr  
-});
-
-//map dispatch to props
-const mapDispatchToProps = (dispatch) => ({
-   updateFirstVarVal: (e) => dispatch(authActions.firstAction(e.target.value))
-}); 
+// //map state to props
+// const mapStateToProps = (store) => ({
+//   firstVarVal: store.auth.firstVarVal,
+//   userNameStr: store.auth.userNameStr,
+//   passwordStr: store.auth.passwordStr  
+// });
+// //map dispatch to props
+// const mapDispatchToProps = (dispatch) => ({
+//    updateFirstVarVal: (e) => dispatch(authActions.firstAction(e.target.value))
+// }); 
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      displayFurniture: false,
-    };
-    this.onButtonClick = this.onButtonClick.bind(this);
   }
-
-  onButtonClick() {
-    this.setState({
-        displayFurniture: true,
-    });
-  }
-
-  render(){  
-    const headerStyle = {
-      textAlign: 'center',
-      fontSize: '52px',
-      color: 'white',
-      fontStyle: 'Impact', 
-    }
-
-    const buttonStyle = {
-      backgroundColor: 'white',
-      width: '1800px',
-      height: '100px',
-      marginLeft: '15px',
-    }
-
-    
-
+  render(){
     return(
       <Fragment>
-    
- {/* <button className="btn" onClick={this.onButtonClick} style={buttonStyle}> Spawn Furniture </button> */}
-        {/* <h1 style={headerStyle}> Floor-it! </h1> */}
-       
-        <CanvasPage/>
-        
-         <button className="btn" onClick={this.onButtonClick} style={buttonStyle}> Spawn Furniture </button>
-        {this.state.displayFurniture ? <Drag/> : null}
-     
-     
-      
-          
-      </Fragment>
-    );
+        <Toolbar />
+        <Router>
+          <Switch>
+            <Route exact path='/' component={SignIn} />
+            <Route path='/landing' component={LandingPage} />
+            <Route path='/canvas' component={CanvasPage} />
+          </Switch>
+        </Router>
+      </Fragment>  
+    )
   }
 }
-  
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

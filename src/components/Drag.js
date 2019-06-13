@@ -11,25 +11,31 @@ class Drag extends Component {
       x: 100,
       y: 350,
       color: "grey",
+
     };
   }
-  handleClick = () => {
+  handleClick = (e, deg) => {
+    e.target.rotate(deg);
+    console.log(e);
     this.setState({
+
       color: Konva.Util.getRandomColor()
     });
   };
   render() {
     return (
-      <Stage width={window.innerWidth} height={window.innerHeight}>
-        <Layer>
+
           <Rect
-            x={this.state.x}
-            y={this.state.y}
-            width={100}
-            height={50}
+          style={{transform: [{rotate: '20deg'}]}}
+            x={120}
+            y={90}
+            width={200}
+            height={100}
             shadowBlur={3}
-            onClick={this.handleClick}
+            onClick={(e)=>{this.handleClick(e, 45)}}
             stroke={'#DCDCDC'}
+            offsetX={100}
+            offsetY={50}
             strokeWidth={2}
             draggable
             fill={this.state.isDragging ? 'crimson' : this.state.color} // COLOR CHANGER!
@@ -46,8 +52,7 @@ class Drag extends Component {
               });
             }}
           />
-        </Layer>
-      </Stage>
+
     );
   }
 }
