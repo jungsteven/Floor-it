@@ -9,23 +9,23 @@ class Toolbar extends Component{
     return(
       <nav class="menu">
 	<ol>
-		<li class="menu-item"><a href="#0">Home</a></li>
-		<li class="menu-item"><a href="#0">Blog</a></li>
-		<li class="menu-item"><a href="#0">Floor Plans</a>
+		<li class="menu-item"><a href="#">Hem</a></li>
+		<li class="menu-item"><a href="#">Blogg</a></li>
+		<li class="menu-item"><a href="#">Planlösning</a>
 			<ol class="sub-menu">
-				<li class="menu-item"><a href="#0">Bedroom</a></li>
-				<li class="menu-item"><a href="#0">Living Room</a></li>
-				<li class="menu-item"><a href="#0">Bathroom</a></li>
+				<li class="menu-item"><a href="#">Sovrum</a></li>
+				<li class="menu-item"><a href="#">Vardagsrum</a></li>
+				<li class="menu-item"><a href="#">Badrum</a></li>
 			</ol>
 		</li>
-		<li class="menu-item"><a href="#0">Find Stores</a>
+		<li class="menu-item"><a href="#">Hitta butik</a>
 			<ol class="sub-menu">
-				<li class="menu-item"><a href="#0">Nearest Location</a></li>
-				<li class="menu-item"><a href="#0">Our Top Picks</a></li>
-				<li class="menu-item"><a href="#0">Forum</a></li>
+				<li class="menu-item"><a href="#">Butikssökare</a></li>
+				<li class="menu-item"><a href="#">Toppval</a></li>
+				<li class="menu-item"><a href="#">Forum</a></li>
 			</ol>
 		</li>
-		<li class="menu-item"><a href="#0">Meet Steven Jung</a></li>
+		<li class="menu-item"><a href="#">Möt Steven Jung</a></li>
 	</ol>
 </nav>
     );
