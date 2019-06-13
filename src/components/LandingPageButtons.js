@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class LandingPageButtons extends Component{
     constructor(props){
         super(props)
+        this.state = {
+            route: '',
+        }
+        this.changeRoute = this.changeRoute.bind(this);
     }
+    changeRoute(routeName) {
+        this.setState({
+            route: routeName
+        });
+    };
     render(){
+        if(this.state.route === '/canvas') {
+            return <Redirect to={this.state.route}/>;
+        }
         const containerStyles = {
             marginTop: '75px',
             border: 'none',
@@ -77,6 +90,18 @@ class LandingPageButtons extends Component{
             fontWeight: 'bolder',
             color: 'black',
         }
+        const btnStyle4 = {
+            marginTop: '10px',
+            marginLeft: '-515px',
+            height: '36px',
+            width: '401%',
+            boxSizing: 'border-box',
+            backgroundColor: '#FFDA1A',
+            fontWeight: 'bolder',
+            color: '#0051BA',
+            fontFamily: 'caslon',
+            fontSize: '18px',
+        }
         return(
             <div className='container' style={containerStyles}>
              <div>
@@ -92,6 +117,7 @@ class LandingPageButtons extends Component{
                <br/>
               </div>
               <input type="text" placeholder="Sökmall" style={searchStyle}></input>
+              <button onClick={()=>{this.changeRoute('/canvas')}} style={btnStyle4}> Börja planeringsplaneringen </button>
             </div>
         );
     }

@@ -76,8 +76,8 @@ class SignIn extends Component{
         <div className='login-wrap' style={styles}>               
             <input style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
             <input style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
-            <input onClick={e=>{this.login(e)}} style={submitStyle} type="submit" value='Logga in'/>
-            <input onClick={()=>{this.state.changeRoute('/canvas')}} style={submitStyle} type="submit" value='Logga in'/>
+            {/* <input onClick={e=>{this.login(e)}} style={submitStyle} type="submit" value='Logga in'/> */}
+            <input onClick={()=>{this.state.changeRoute('/landing')}} style={submitStyle} type="submit" value='Logga in'/>
             <button onClick={()=>{this.state.changeRoute('/landing')}}>CANDYLAND</button>
         </div>
         </Fragment>
