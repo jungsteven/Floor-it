@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Konva from "konva";
-import { Stage, Layer, Rect } from 'react-konva';
+import { Stage, Layer, Rect, Text } from 'react-konva';
 
 class Drag extends Component {
   constructor(props) {
@@ -15,12 +15,10 @@ class Drag extends Component {
     };
   }
   handleClick = (e, deg) => {
+    console.log(e);
     e.target.rotate(deg);
     console.log(e);
-    this.setState({
 
-      color: Konva.Util.getRandomColor()
-    });
   };
   render() {
     return (
@@ -29,16 +27,16 @@ class Drag extends Component {
           style={{transform: [{rotate: '20deg'}]}}
             x={120}
             y={90}
-            width={200}
-            height={100}
+            width={this.props.width}
+            height={this.props.height}
             shadowBlur={3}
             onClick={(e)=>{this.handleClick(e, 45)}}
             stroke={'#DCDCDC'}
-            offsetX={100}
-            offsetY={50}
+            offsetX={this.props.width / 2}
+            offsetY={this.props.height / 2}
             strokeWidth={2}
             draggable
-            fill={this.state.isDragging ? 'crimson' : this.state.color} // COLOR CHANGER!
+            fill={this.state.isDragging ? 'crimson' : this.props.color} // COLOR CHANGER!
             onDragStart={() => {
               this.setState({
                 isDragging: true
@@ -51,8 +49,7 @@ class Drag extends Component {
                 y: e.target.y()
               });
             }}
-          />
-
+          ></Rect>
     );
   }
 }
