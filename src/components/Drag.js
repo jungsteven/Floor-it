@@ -14,8 +14,8 @@ class Drag extends Component {
 
     };
   }
-  handleClick = (e) => {
-    e.target.rotate(45);
+  handleClick = (e, deg) => {
+    e.target.rotate(deg);
     console.log(e);
     this.setState({
 
@@ -27,12 +27,12 @@ class Drag extends Component {
 
           <Rect
           style={{transform: [{rotate: '20deg'}]}}
-            x={20}
-            y={20}
+            x={120}
+            y={90}
             width={200}
             height={100}
             shadowBlur={3}
-            onClick={(e)=>{this.handleClick(e)}}
+            onClick={(e)=>{this.handleClick(e, 45)}}
             stroke={'#DCDCDC'}
             offsetX={100}
             offsetY={50}
