@@ -200,9 +200,6 @@ ol{list-style-type:none}
 	.sub-menu > .menu-item{margin:auto}
 }
 
-
-
-
 .side-bar{
 	width: 16em;
 	height: auto;
@@ -257,7 +254,7 @@ a{
 	color: white;
 	text-decoration: none;
 }
-span{
+.spam{
 	display: block;
 	position: absolute;
 	font-size: 1.222222222222222em;
