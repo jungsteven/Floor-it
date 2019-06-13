@@ -20,14 +20,14 @@ class Drag extends Component {
   };
   render() {
     return (
-      <Stage width={window.innerWidth} height={window.innerHeight}>
-        <Layer>
+
           <Rect
-            x={this.state.x}
-            y={this.state.y}
+            x={20}
+            y={20}
             width={100}
             height={50}
             shadowBlur={3}
+            zIndex={1000}
             onClick={this.handleClick}
             stroke={'#DCDCDC'}
             strokeWidth={2}
@@ -46,8 +46,7 @@ class Drag extends Component {
               });
             }}
           />
-        </Layer>
-      </Stage>
+
     );
   }
 }
