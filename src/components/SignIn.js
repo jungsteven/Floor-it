@@ -7,6 +7,8 @@ class SignIn extends Component{
         this.state = {
             route: '',
             changeRoute: (route) => {this.setState({route})},
+            userName: '',
+            password: ''
         };
         this.login = this.login.bind(this);
         this.changeVal = this.changeVal.bind(this);
@@ -74,10 +76,9 @@ class SignIn extends Component{
         <Fragment>
         <img src="https://fontmeme.com/permalink/190613/3ceff503b7fdbbdb4c0fbf5ededcf6a7.png" className="img-rotate-scale" style={headerStyles}/>
         <div className='login-wrap' style={styles}>               
-            <input style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
-            <input style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
+            <input onChange={(e)=>{this.changeVal(e, 'userName')}}style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
+            <input onChange={(e)=>{this.changeVal(e, 'password')}} style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
             <input onClick={e=>{this.login(e)}} style={submitStyle} type="submit" value='Logga in'/>
-            <input onClick={()=>{this.state.changeRoute('/canvas')}} style={submitStyle} type="submit" value='Logga in'/>
             <button onClick={()=>{this.state.changeRoute('/landing')}}>CANDYLAND</button>
         </div>
         </Fragment>
