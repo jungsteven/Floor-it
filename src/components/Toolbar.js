@@ -7,9 +7,6 @@ class Toolbar extends Component{
   }
   render(){
     return(
-      // <div id='toolbar'>
-      //   <p>{'TOOLBAR'}</p>
-      // </div>
       <nav class="menu">
 	<ol>
 		<li class="menu-item"><a href="#0">Home</a></li>
