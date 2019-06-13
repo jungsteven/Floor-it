@@ -199,3 +199,73 @@ ol{list-style-type:none}
 	
 	.sub-menu > .menu-item{margin:auto}
 }
+
+
+
+
+.side-bar{
+	width: 16em;
+	height: auto;
+	margin: 4em auto 0;
+	font-size: 1em;
+	line-height: 2em;
+	font-weight: 700;
+	color: white;
+	text-transform: uppercase;
+/*	text-decoration: none;
+	border: none;*/
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -13em;
+	padding-top: 100px;
+}
+.side-ul{
+	list-style: none;
+}
+.side-li{
+	display: block;
+	background: #333;
+	height: 6em;
+	padding: 1em 1.5em;
+	position: relative;
+	transition: transform .5s,background-color .5s ,color 0.5s;
+}
+.side-li:nth-child(1){
+	background:red;
+}
+.side-li:nth-child(2){
+	background:orange;
+}
+.side-li:nth-child(3){
+	background:gold;
+}
+.side-li:nth-child(4){
+	background:green;
+}
+.side-li:nth-child(5){
+	background:blue;
+}
+.side-li:nth-child(6){
+	background:purple;
+}
+.side-li:hover{
+	transform: translateX(10em);
+}
+a{
+	display: block;
+	color: white;
+	text-decoration: none;
+}
+span{
+	display: block;
+	position: absolute;
+	font-size: 1.222222222222222em;
+	line-height: 2em;
+	height: 2em;
+	top: 0;
+	bottom: 0;
+	margin: -5px 2px;
+	padding: 1em 1.5em;
+	right: -1em;
+}

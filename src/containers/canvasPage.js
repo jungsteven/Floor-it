@@ -2,6 +2,8 @@ import React, { Fragment, Component } from 'react';
 import ReactDOM from 'react-dom';
 import Drag from '../components/Drag';
 import { Stage, Layer, Text} from 'react-konva';
+import Sidebar from '../components/Sidebar';
+import '../styles.css';
 
 class CanvasPage extends Component {
   constructor(props) {
@@ -69,7 +71,7 @@ class CanvasPage extends Component {
     return (
       <Fragment>
         <button onClick={this.onButtonClick}> Add Furniture </button>
-          <Drag /><p>fuckof</p>
+        <Sidebar />
         <div className="canvas-page">
         <Drag />
         <Stage width={window.innerWidth} height={window.innerHeight}style={canvasStyle} ref="myCanvas"  >
