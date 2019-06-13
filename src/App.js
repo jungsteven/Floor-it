@@ -1,14 +1,14 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
-//REACT ROUTER
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Switch } from 'react-router';
-//COMPONENTS 
 import LandingPage from './containers/LandingPage.js';
 import PlaceholderTwo from './components/PlaceholderTwo.js';
 import Toolbar from './components/Toolbar.js';
 import CanvasPage from './containers/canvasPage.js';
 import SignIn from './components/SignIn.js';
+
+// JUST REDUX STUFF. GET BACK TO THIS!
 //IMPORT ACTION CREATORS HERE
 // import  * as authActions from './actions/authActions.js';
 

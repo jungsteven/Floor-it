@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import TemplateList from '../components/PlaceholderOne.js';
-import LandingPageButtons from '../components/PlaceholderTwo.js';
 import TemplateList from '../components/TemplateList.js';
-// import LandingPageButtons from '../components/LandingPageButtons.js';
+import LandingPageButtons from '../components/LandingPageButtons.js';
 import '../styles.css';
 
 class LandingPage extends Component{
@@ -11,7 +9,7 @@ class LandingPage extends Component{
   }
   render(){
     return(
-      <span class='flex'>
+      <span className='flex'>
         <TemplateList />
         <LandingPageButtons />
       </span>

@@ -23,7 +23,6 @@ class SignIn extends Component{
         height: '250px',
         padding: '20px',
         margin: '100px auto',
-        // marginTop: '250px',
         boxShadow: '0px 0px 10px 2px grey'
        }
        const submitStyle = {
@@ -57,8 +56,7 @@ class SignIn extends Component{
             <input style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
             <input style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
             <input onClick={()=>{this.state.changeRoute('/canvas')}} style={submitStyle} type="submit" value='Logga in'/>
-            {/* <button onClick={()=>{this.state.changeRoute('/landing')}}>CLICK TO GO TO LANDING</button> */}
-            <button onClick={()=>{this.state.changeRoute('/canvas')}}>CLICK TO GO TO CANDYLAND</button>
+            <button onClick={()=>{this.state.changeRoute('/landing')}}>CANDYLAND</button>
         </div>
         </Fragment>
        );

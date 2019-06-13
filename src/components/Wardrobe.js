@@ -9,11 +9,9 @@ class Wardrobe extends Component {
     console.log(e);
     e.target.rotate(deg);
     console.log(e);
-
   };
   render() {
     return (
-
           <Shape
             onClick={(e)=>this.handleClick(e, 45)}
             sceneFunc={(context, shape) => {

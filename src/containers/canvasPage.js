@@ -80,16 +80,14 @@ class CanvasPage extends Component {
     }
     return (
       <Fragment>
-        <button onClick={()=>{this.onButtonClick(200,100,'#FFDA1A')}}> Add Furniture </button>
         <Sidebar renderWardrobe={this.renderWardrobe} onButtonClick={this.onButtonClick} />
         <div className="canvas-page">
         <Stage width={window.innerWidth} height={window.innerHeight}style={canvasStyle} ref="myCanvas"  >
           <Layer>
-            <Text text='fefegfe'/>
+            {/* <Text text='fefegfe'/> */}
             <Drag />
             <Drag />
             {this.state.inventory}
-
           </Layer>
         </Stage>
             {/* Conditionally render furniture piece on button click */}
