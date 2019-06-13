@@ -14,8 +14,7 @@ class CanvasPage extends Component {
   }
   onButtonClick() {
     const clonedInventory = this.state.inventory.slice();
-    clonedInventory.push(<Drag key={Math.floor(Math.random() * 100000)} zIndex={100} />);
-    clonedInventory.push(<p>efefe</p>);
+    clonedInventory.push(<Drag  />);
     console.log('cloned inven', clonedInventory);
     console.log('real inven', this.state.inventory);
     this.setState({
@@ -68,13 +67,12 @@ class CanvasPage extends Component {
             <Text text='fefegfe'/>
             <Drag />
             <Drag />
+            {this.state.inventory}
+
           </Layer>
         </Stage>
             {/* Conditionally render furniture piece on button click */}
             {this.state.displayFurniture ? /*this.state.inventory*/null: null} 
-            <Drag />
-            <Drag />
-
         </div>
       </Fragment>
         
