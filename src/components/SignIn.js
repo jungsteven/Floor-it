@@ -44,7 +44,6 @@ class SignIn extends Component{
         height: '250px',
         padding: '20px',
         margin: '100px auto',
-        // marginTop: '250px',
         boxShadow: '0px 0px 10px 2px grey'
        }
        const submitStyle = {
@@ -75,11 +74,11 @@ class SignIn extends Component{
         <Fragment>
         <img src="https://fontmeme.com/permalink/190613/3ceff503b7fdbbdb4c0fbf5ededcf6a7.png" className="img-rotate-scale" style={headerStyles}/>
         <div className='login-wrap' style={styles}>               
-            <input onChange={(e)=>{this.changeVal(e,'userName')}} style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
-            <input onChange={(e)=>{this.changeVal(e, 'password')}}style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
+            <input style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
+            <input style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
             <input onClick={e=>{this.login(e)}} style={submitStyle} type="submit" value='Logga in'/>
-            {/* <button onClick={()=>{this.state.changeRoute('/landing')}}>CLICK TO GO TO LANDING</button> */}
-            <button onClick={()=>{this.state.changeRoute('/canvas')}}>CLICK TO GO TO CANDYLAND</button>
+            <input onClick={()=>{this.state.changeRoute('/canvas')}} style={submitStyle} type="submit" value='Logga in'/>
+            <button onClick={()=>{this.state.changeRoute('/landing')}}>CANDYLAND</button>
         </div>
         </Fragment>
        );

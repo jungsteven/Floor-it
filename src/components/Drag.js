@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-import Konva from "konva";
-import { Stage, Layer, Rect, Text } from 'react-konva';
+import { Rect } from 'react-konva';
 
 class Drag extends Component {
   constructor(props) {
     super(props)
-  
     this.state = {
       isDragging: false,
       x: 100,
       y: 350,
       color: "grey",
-
     };
   }
   handleClick = (e, deg) => {
-    console.log(e);
     e.target.rotate(deg);
-    console.log(e);
-
   };
   render() {
     return (

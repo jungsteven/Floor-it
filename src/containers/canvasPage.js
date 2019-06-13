@@ -6,16 +6,25 @@ import Sidebar from '../components/Sidebar';
 import '../styles.css';
 import Wardrobe from '../components/Wardrobe.js';
 import Vase from '../components/Vase.js';
+
+const imagesPath = {
+  minus: 'https://i.imgur.com/pNKTfEp.jpg',
+  plus: 'https://i.imgur.com/wvKRoKy.png',
+}
+
 class CanvasPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
       inventory: [],
       displayFurniture: true,
+      open: true,
     }
     this.onButtonClick = this.onButtonClick.bind(this);
     this.renderWardrobe = this.renderWardrobe.bind(this);
     this.renderVase = this.renderVase.bind(this);
+    this.toggleImage = this.toggleImage.bind(this);
+    this.getImageName = this.getImageName.bind(this);
   }
 
   renderVase(){
@@ -26,7 +35,10 @@ class CanvasPage extends Component {
       inventory: clonedInventory
     })
   }
-
+  toggleImage = () => {
+    this.setState(state => ({ open: !state.open }))
+  }
+  getImageName = () => this.state.open ? 'plus' : 'minus'
   renderWardrobe(){
     const clonedInventory = this.state.inventory.slice();
     clonedInventory.push(<Wardrobe />);
@@ -70,6 +82,7 @@ class CanvasPage extends Component {
       // drawBoard();
 
   render() {
+    const imageName = this.getImageName();
     const canvasStyle = {
       position: 'absolute',
       width: '1200px',
@@ -78,7 +91,7 @@ class CanvasPage extends Component {
       top: '50%',
       marginLeft: '-600px',
       marginTop: '-400px',
-      backgroundImage: 'url("https://i.imgur.com/wvKRoKy.png")',
+      backgroundImage: `url(${imagesPath[imageName]})`, //https://i.imgur.com/pNKTfEp.jpg //url("https://i.imgur.com/wvKRoKy.png")
       opacity: 0.75,
     }
     const hStyle = {
@@ -88,8 +101,50 @@ class CanvasPage extends Component {
       position: 'fixed',
       top: '25%',
       left: '5.75%',
-     
+    }
+    const saveButton = {
+      border: 'none',
+      padding: '15px 32px',
+      textAlign: 'center',
+      textDecoration: 'none',
+      position: 'fixed',
+      fontSize: '16px',
+      height: '50px',
+      margin: '0 auto',
+      top: '0px',
+      left: '3.5%',
+      position:'absolute',
+      transition:'all .5s ease',
+      transformStyle:'preserve-3d',
+      fontFamily: 'caslon',
+      fontSize: '18px',
+      backgroundColor: 'black',
+      color: '#fff',
+      boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+      opacity: 0.85,
+    }
 
+    const floorButton = {
+      border: 'none',
+      padding: '15px 32px',
+      textAlign: 'center',
+      textDecoration: 'none',
+      position: 'fixed',
+      fontSize: '16px',
+      height: '50px',
+      margin: '0 auto',
+      top: '0px',
+      left: '86.5%',
+      width: '200px',
+      position:'absolute',
+      transition:'all .5s ease',
+      transformStyle:'preserve-3d',
+      fontFamily: 'caslon',
+      fontSize: '18px',
+      backgroundColor: 'black',
+      color: '#fff',
+      boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+      opacity: 0.85,
     }
     return (
       <Fragment>
@@ -102,15 +157,15 @@ class CanvasPage extends Component {
         <div className="canvas-page">
         <Stage width={window.innerWidth} height={window.innerHeight}style={canvasStyle} ref="myCanvas"  >
           <Layer>
-            <Text text='fefegfe'/>
             <Drag />
             <Drag />
             {this.state.inventory}
-
           </Layer>
         </Stage>
             {/* Conditionally render furniture piece on button click */}
             {this.state.displayFurniture ? /*this.state.inventory*/null: null} 
+            <button id="download" style={saveButton}>Exportera som bild</button>
+            <button onClick={this.toggleImage} style={floorButton}>Byt golv</button>
         </div>
       </Fragment>
         

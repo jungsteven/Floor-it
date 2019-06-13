@@ -3,33 +3,32 @@ import '../styles.css';
 
 class Toolbar extends Component{
   constructor(props){
-    super(props);
+		super(props);
   }
   render(){
     return(
-      <nav class="menu">
+      <nav className="menu">
 	<ol>
-		<li class="menu-item"><a href="#">Hem</a></li>
-		<li class="menu-item"><a href="#">Blogg</a></li>
-		<li class="menu-item"><a href="#">Planlösning</a>
-			<ol class="sub-menu">
-				<li class="menu-item"><a href="#">Sovrum</a></li>
-				<li class="menu-item"><a href="#">Vardagsrum</a></li>
-				<li class="menu-item"><a href="#">Badrum</a></li>
+		<li className="menu-item"><a href="#0">Hem</a></li>
+		<li className="menu-item"><a href="#0">Blogg</a></li>
+		<li className="menu-item"><a href="#0">Planlösning</a>
+			<ol className="sub-menu">
+				<li className="menu-item"><a href="#0">Sovrum</a></li>
+				<li className="menu-item"><a href="#0">Vardagsrum</a></li>
+				<li className="menu-item"><a href="#0">Badrum</a></li>
 			</ol>
 		</li>
-		<li class="menu-item"><a href="#">Hitta butik</a>
-			<ol class="sub-menu">
-				<li class="menu-item"><a href="#">Butikssökare</a></li>
-				<li class="menu-item"><a href="#">Toppval</a></li>
-				<li class="menu-item"><a href="#">Forum</a></li>
+		<li className="menu-item"><a href="#0">Hitta butik</a>
+			<ol className="sub-menu">
+				<li className="menu-item"><a href="#0">Butikssökare</a></li>
+				<li className="menu-item"><a href="#0">Toppval</a></li>
+				<li className="menu-item"><a href="#0">Forum</a></li>
 			</ol>
 		</li>
-		<li class="menu-item"><a href="#">Möt Steven Jung</a></li>
+		<li className="menu-item"><a href="#0">Möt Steven Jung</a></li>
 	</ol>
-</nav>
+		</nav>
     );
   }
 }
-
 export default Toolbar;

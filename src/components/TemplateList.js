@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 class TemplateList extends Component{
   constructor(props){
     super(props);
   }
   render(){
-    const placeholderList = [];
+    const templatesList = [];
     for(let x = 0; x < 101; x += 1){
-      placeholderList.push(<div class='templateData'><p>{'TEMPLATE NUM' + x}</p></div>)
+      templatesList.push(<div key={x} className='templateData'><a className="list-items" href="#0">{'Välj / Ladda en mall ' + x}</a></div>)
     }
     return(
+      <Fragment>
       <div id='templatelist'>
-        {placeholderList}
+        {templatesList}
       </div>
+      </Fragment>
     )
   }
 }
