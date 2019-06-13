@@ -75,8 +75,27 @@ class CanvasPage extends Component {
       position: 'fixed',
       top: '25%',
       left: '5.75%',
-     
-
+    }
+    const saveButton = {
+      border: 'none',
+      padding: '15px 32px',
+      textAlign: 'center',
+      textDecoration: 'none',
+      position: 'fixed',
+      fontSize: '16px',
+      height: '50px',
+      margin: '0 auto',
+      top: '0px',
+      left: '3.5%',
+      position:'absolute',
+      transition:'all .5s ease',
+      transformStyle:'preserve-3d',
+      fontFamily: 'caslon',
+      fontSize: '18px',
+      backgroundColor: 'black',
+      color: '#fff',
+      boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+      opacity: 0.85,
     }
     return (
       <Fragment>
@@ -92,6 +111,7 @@ class CanvasPage extends Component {
         </Stage>
             {/* Conditionally render furniture piece on button click */}
             {this.state.displayFurniture ? /*this.state.inventory*/null: null} 
+            <button style={saveButton}>Exportera som bild</button>
         </div>
       </Fragment>
         
