@@ -55,13 +55,24 @@ class CanvasPage extends Component {
       backgroundImage: 'url("https://i.imgur.com/wvKRoKy.png")',
       opacity: 0.75,
     }
+    const hStyle = {
+      color: 'red',
+      textAlign: 'center',
+      backgroundColor: 'red',
+      position: 'fixed',
+      top: '25%',
+      left: '5.75%',
+     
+
+    }
     return (
       <Fragment>
         <button onClick={this.onButtonClick}> Add Furniture </button>
         <div className="canvas-page">
-            <canvas style={canvasStyle} ref="myCanvas" width="1580px" height="1580px" />
+            {/* <canvas style={canvasStyle} ref="myCanvas" width="1580px" height="1580px" /> */}
             {/* Conditionally render furniture piece on button click */}
-            {this.state.displayFurniture ? this.state.inventory: null} 
+            {this.state.displayFurniture ? this.state.inventory: null}
+            <div style={hStyle}> HOWDY </div> 
         </div>
       </Fragment>
         
