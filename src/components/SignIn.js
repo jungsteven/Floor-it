@@ -79,7 +79,7 @@ class SignIn extends Component{
             <input onChange={(e)=>{this.changeVal(e, 'userName')}}style={inputStyle} placeholder='Användarnamn' type='name'name='email'/>
             <input onChange={(e)=>{this.changeVal(e, 'password')}} style={inputStyle} placeholder='Lösenord' type='password' name='password'/>
             <input onClick={e=>{this.login(e)}} style={submitStyle} type="submit" value='Logga in'/>
-            <button onClick={()=>{this.state.changeRoute('/landing')}}>CANDYLAND</button>
+            {/* <button onClick={()=>{this.state.changeRoute('/landing')}}>CANDYLAND</button> */}
         </div>
         </Fragment>
        );
