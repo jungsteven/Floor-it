@@ -178,7 +178,6 @@ class CanvasPage extends Component {
     }
     return (
       <Fragment>
-        <button onClick={()=>{this.onButtonClick(200,100,'#FFDA1A')}}> Add Furniture </button>
         <Sidebar 
           renderWardrobe={this.renderWardrobe} 
           renderVase={this.renderVase}
