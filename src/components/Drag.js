@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Rect } from 'react-konva';
 
 class Drag extends Component {
-  constructor(props) {
-    super(props)
+  constructor(props, state) {
+    super(props, state)
     this.state = {
       isDragging: false,
       x: 100,
@@ -37,6 +37,7 @@ class Drag extends Component {
               });
             }}
             onDragEnd={e => {
+              this.props.pullCoords(e, this.props.id)
               this.setState({
                 isDragging: false,
                 x: e.target.x(),

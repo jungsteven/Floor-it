@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 import '../styles.css';
 import Wardrobe from '../components/Wardrobe.js';
 import Vase from '../components/Vase.js';
+import { arrayExpression } from '@babel/types';
 
 const imagesPath = {
   minus: 'https://i.imgur.com/pNKTfEp.jpg',
@@ -19,17 +20,46 @@ class CanvasPage extends Component {
       inventory: [],
       displayFurniture: true,
       open: true,
+      template: [[445,439,'vase'],[445,545, 'vase'],[445, 492, 'vase'],[445,386,'vase'],[445,336,'vase'], [445, 457, 'vase']]
     }
     this.onButtonClick = this.onButtonClick.bind(this);
     this.renderWardrobe = this.renderWardrobe.bind(this);
     this.renderVase = this.renderVase.bind(this);
     this.toggleImage = this.toggleImage.bind(this);
     this.getImageName = this.getImageName.bind(this);
-  }
+    this.pullCoords = this.pullCoords.bind(this);
+    this.useTemplate = this.useTemplate.bind(this);
 
+  }
+  useTemplate(){
+    const newInventory = this.state.template.map((item, idx) =>{
+      const newItem = item.slice()
+      console.log(item)
+      if(item[2] === 'vase') newItem.push(<Vase y={item[1]} x={item[0]} pullCoords={this.pullCoords} id={idx}/>)
+      else if(item[2] === 'wardrobe') newItem.push(<Wardrobe y={900} x={2000} pullCoords={this.pullCoords} id={idx}/>)
+      return newItem
+    })
+    console.log(newInventory)
+    this.setState({
+      inventory: newInventory
+    })
+  }
+  pullCoords(e, id){
+    const clonedInventory = this.state.inventory.slice();
+    clonedInventory[id][0] = e.target.x();
+    clonedInventory[id][1] = e.target.y();
+    this.setState({
+      inventory: clonedInventory
+    });
+  }
   renderVase(){
     const clonedInventory = this.state.inventory.slice();
-    clonedInventory.push(<Vase />);
+  clonedInventory.push([250, 250, 'vase']);
+  clonedInventory[clonedInventory.length - 1].push(<Vase y={clonedInventory[clonedInventory.length - 1][1]} x={clonedInventory[clonedInventory.length - 1][0]}pullCoords={this.pullCoords} id={clonedInventory.length - 1}/>)
+    clonedInventory.forEach(item => console.log('item state', item))
+    const newTemplate = clonedInventory.map(item => {
+      return {}
+    });
     this.setState({
       displayFurniture: true,
       inventory: clonedInventory
@@ -39,21 +69,21 @@ class CanvasPage extends Component {
     this.setState(state => ({ open: !state.open }))
   }
   getImageName = () => this.state.open ? 'plus' : 'minus'
+
   renderWardrobe(){
     const clonedInventory = this.state.inventory.slice();
-    clonedInventory.push(<Wardrobe />);
+    clonedInventory.push([250, 250, 'wardrobe']);
+    clonedInventory[clonedInventory.length - 1].push(<Wardrobe y={clonedInventory[clonedInventory.length - 1][1]} x={clonedInventory[clonedInventory.length - 1][0]} pullCoords={this.pullCoords} id={clonedInventory.length - 1}/>);
     this.setState({
       displayFurniture: true,
       inventory: clonedInventory
-    })
+    });
   }
   onButtonClick(w, h, color) {
     const clonedInventory = this.state.inventory.slice();
-    clonedInventory.push(<Drag  width={w} height={h} color={color}/>);
-    clonedInventory.forEach(thing =>console.log(thing));
+    clonedInventory.push([250, 250, 'rect']);
+    clonedInventory[clonedInventory.length - 1].push(<Drag y={clonedInventory[clonedInventory.length - 1][1]} x={clonedInventory[clonedInventory.length - 1][0]} pullCoords={this.pullCoords} id={clonedInventory.length - 1} width={w} height={h} color={color}/>);
 
-    console.log('cloned inven', clonedInventory);
-    console.log('real inven', this.state.inventory);
     this.setState({
       displayFurniture: true,
       inventory: clonedInventory,
@@ -159,12 +189,12 @@ class CanvasPage extends Component {
           <Layer>
             <Drag />
             <Drag />
-            {this.state.inventory}
+            {this.state.inventory.map(item => item[3])}
           </Layer>
         </Stage>
             {/* Conditionally render furniture piece on button click */}
             {this.state.displayFurniture ? /*this.state.inventory*/null: null} 
-            <button id="download" style={saveButton}>Exportera som bild</button>
+            <button onClick={this.useTemplate}id="download" style={saveButton}>Exportera som bild</button>
             <button onClick={this.toggleImage} style={floorButton}>Byt golv</button>
         </div>
       </Fragment>

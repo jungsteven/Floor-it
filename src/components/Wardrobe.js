@@ -30,12 +30,27 @@ class Wardrobe extends Component {
               // (!) Konva specific method, it is very important
               context.fillStrokeShape(shape);
             }}
+            x={this.props.x}
+            y={this.props.y}
             offsetX={45}
             offsetY={30}
             fill="blue"
             stroke="black"
             strokeWidth={1}
             draggable
+            onDragStart={() => {
+              this.setState({
+                isDragging: true
+              });
+            }}
+            onDragEnd={e => {
+              this.props.pullCoords(e, this.props.id)
+              this.setState({
+                isDragging: false,
+                x: e.target.x(),
+                y: e.target.y()
+              });
+            }}
           />
 
     );

@@ -25,8 +25,8 @@ class Vase extends Component {
 
           <Circle
           style={{transform: [{rotate: '20deg'}]}}
-            x={120}
-            y={90}
+            x={this.props.x}
+            y={this.props.y}
             width={50}
             height={50}
             shadowBlur={3}
@@ -43,6 +43,7 @@ class Vase extends Component {
               });
             }}
             onDragEnd={e => {
+              this.props.pullCoords(e, this.props.id)
               this.setState({
                 isDragging: false,
                 x: e.target.x(),
